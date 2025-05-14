@@ -1,9 +1,7 @@
 with
     customers as (select * from {{ ref("stg_customers") }}),
 
-    orders as (
-    select * from {{ ref ('orders')}}
-),
+    orders as (select * from {{ ref("orders") }}),
 
     customer_orders as (
 
