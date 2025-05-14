@@ -1,10 +1,22 @@
 version: 2
 
 sources:
-  - name: raindrop-op_api
-    database: default
-    schema: jaffle_shop_customers
+  - name: raindrop-io_api # alias
+    database: raindrop-io_api # real
+    freshness: # default freshness
+      warn_after: {count: 12, period: hour}
+      error_after: {count: 24, period: hour}
+    loaded_at_field: loaded_at
+    schema: default
     tables:
       - name: jaffle_shop_orders
-      - name: jaffle_shop_customers
+        freshness: # make this a little more strict
+          warn_after: {count: 60, period: minute}
+          error_after: {count: 120, period: minute}
+        loaded_at_field: loaded_at
+      - name: jaffle_shop_customers # alias
+        identifier: jaffle_shop_customers # real
+        freshness: null
+
       - name: stripe_payments
+        freshness: null
