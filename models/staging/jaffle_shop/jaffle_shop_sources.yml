@@ -1,13 +1,10 @@
 version: 2
 
 sources:
-  - name: raindrop-op_dev
+  - name: raindrop-op_api
     database: default
     schema: jaffle_shop_customers
     tables:
       - name: jaffle_shop_orders
       - name: jaffle_shop_customers
-
-  - name: stripe
-    tables:
-      - name: payments
+      - name: stripe_payments
