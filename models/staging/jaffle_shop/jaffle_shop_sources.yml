@@ -1,12 +1,12 @@
 version: 2
 
 sources:
-  - name: jaffle_shop
-    database: default  
-    schema: jaffle_shop  
+  - name: raindrop-op_dev
+    database: default
+    schema: jaffle_shop_customers
     tables:
-      - name: orders
-      - name: customers
+      - name: jaffle_shop_orders
+      - name: jaffle_shop_customers
 
   - name: stripe
     tables:
